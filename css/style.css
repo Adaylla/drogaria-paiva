@@ -230,7 +230,7 @@ body {
     top: 0;
     z-index: 999;
     background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .headerRow {
@@ -264,60 +264,68 @@ body {
 .headerRowContainer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
+    gap: 2rem;
 }
 
 /* logo */
 .logoLink {
     text-decoration: none;
-    margin-right: 2rem;
+    flex-shrink: 0;
 }
 
 .logoContainer {
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
 }
 
-.logoImage {
-    height: 40px;
+.logoContainer img {
+    height: 50px;
     width: auto;
+    object-fit: contain;
 }
 
 /* barra de busca */
 .containerBusca {
     flex: 1;
     max-width: 600px;
-    margin: 0 2rem;
+    min-width: 200px;
 }
 
 .containerNovaBusca {
     position: relative;
+    width: 100%;
 }
 
 .containerInputNovaBusca {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .iconNovaBusca {
     position: absolute;
-    left: 12px;
+    left: 15px;
     color: var(--cinza-texto);
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     z-index: 2;
 }
 
 .inputNovaBusca {
     width: 100%;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 45px;
     border: 1px solid #e3e4e6;
     border-radius: 8px;
     font-size: 14px;
     background-color: #f9f9f9;
     outline: none;
     transition: all 0.3s;
+    font-family: 'Roboto', sans-serif;
 }
 
 .inputNovaBusca:focus {
@@ -328,17 +336,19 @@ body {
 
 .inputNovaBusca::placeholder {
     color: var(--cinza-texto);
+    font-size: 13px;
 }
 
 /* login header */
 .loginContainer {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    gap: 1rem;
+    flex-shrink: 0;
 }
 
 .buttonLink {
-    margin-right: 1rem;
+    margin-right: 0;
 }
 
 .vtex-button {
@@ -347,8 +357,8 @@ body {
     position: relative;
     padding: 0;
     line-height: 1;
-    border-radius: 4px;
-    min-height: 40px;
+    border-radius: 6px;
+    min-height: 44px;
     background: transparent;
     border-color: transparent;
     color: var(--azul);
@@ -357,8 +367,7 @@ body {
 }
 
 .vtex-button:hover {
-    background-color: transparent;
-    border-color: transparent;
+    background-color: rgba(0, 151, 178, 0.05);
 }
 
 .vtex-button__label {
@@ -366,7 +375,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 8px 24px;
+    padding: 8px 16px;
 }
 
 .flex.items-center {
@@ -375,12 +384,12 @@ body {
 }
 
 .mr3 {
-    margin-right: 0.75rem;
+    margin-right: 0.5rem;
 }
 
 .profile-icon {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     color: var(--cinza-texto);
 }
 
@@ -392,24 +401,26 @@ body {
 }
 
 .welcome-text {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--cinza-texto);
+    font-weight: 400;
 }
 
-.header-login-link {
-    font-size: 12px;
-    color: var(--cinza-texto);
+.login-link {
+    font-size: 13px;
+    color: var(--azul);
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-.header-login-link:hover {
-    color: var(--cinza-texto);
+.login-link:hover {
+    color: #007a94;
     text-decoration: none;
 }
 
 /* minicart */
 .minicartWrapperContainer {
-    margin-left: 1rem;
     display: flex;
     align-items: center;
 }
@@ -419,13 +430,13 @@ body {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 4px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
     transition: background-color 0.3s;
 }
 
 .minicartContainer:hover {
-    background-color: transparent;
+    background-color: rgba(0, 151, 178, 0.05);
 }
 
 .minicartIconContainer {
@@ -443,8 +454,10 @@ body {
 }
 
 .minicart-label {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--cinza-texto);
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 /* menu de navegação */
@@ -458,6 +471,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    justify-content: flex-start;
 }
 
 .navMenu li {
@@ -467,15 +481,112 @@ body {
 .navMenu a {
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 16px 24px;
     display: block;
     font-weight: 500;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    white-space: nowrap;
 }
 
 .navMenu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .headerRowContainer {
+        gap: 1.5rem;
+    }
+    
+    .containerBusca {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerRowContainer {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0.8rem 0;
+    }
+    
+    .logoLink {
+        order: 1;
+    }
+    
+    .logoContainer img {
+        height: 40px;
+    }
+    
+    .containerBusca {
+        order: 3;
+        max-width: 100%;
+        min-width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .loginContainer {
+        order: 2;
+        margin-left: auto;
+    }
+    
+    .minicart-label {
+        display: none;
+    }
+    
+    .vtex-button__label {
+        padding: 8px 12px;
+    }
+    
+    .login-text-container {
+        display: none;
+    }
+    
+    .navMenu {
+        overflow-x: auto;
+        padding: 0 0.5rem;
+    }
+    
+    .navMenu a {
+        padding: 14px 18px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.8rem;
+    }
+    
+    .logoContainer img {
+        height: 35px;
+    }
+    
+    .inputNovaBusca {
+        padding: 10px 15px 10px 40px;
+        font-size: 13px;
+    }
+    
+    .iconNovaBusca {
+        left: 12px;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .navMenu a {
+        padding: 12px 16px;
+        font-size: 12px;
+    }
+    
+    .minicartContainer {
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .cart-icon {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 /* banner */
@@ -718,5 +829,211 @@ footer {
     
     .form-container {
         padding: 1.5rem;
+    }
+}
+
+/* serviços */
+main.container {
+    padding: 40px 0;
+    flex: 1;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.intro h2 {
+    color: var(--azul);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    color: var(--cinza-texto);
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.service-category {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--azul);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-category h3 {
+    color: var(--azul);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--cinza-claro);
+    position: relative;
+}
+
+.service-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-category li {
+    padding: 12px 0;
+    color: var(--cinza-texto);
+    position: relative;
+    padding-left: 25px;
+    border-bottom: 1px solid var(--cinza-claro);
+    transition: color 0.3s ease;
+}
+
+.service-category li::before {
+    content: "•";
+    color: var(--vermelho);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+/* Seção de Parcerias */
+.partnerships {
+    background: linear-gradient(135deg, #ffffff 0%, var(--cinza-claro) 100%);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin: 0 20px 40px;
+    border: 1px solid #e9ecef;
+}
+
+.partnerships h2 {
+    color: var(--azul);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.partnerships h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--vermelho));
+    border-radius: 2px;
+}
+
+.partnerships p {
+    color: var(--cinza-texto);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    
+}
+
+.partnerships ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.partnerships li {
+    padding: 10px 0;
+    color: var(--cinza-texto);
+    position: relative;
+    padding-left: 30px;
+    line-height: 1.6;
+}
+
+.partnerships li::before {
+    content: "✓";
+    color: var(--vermelho);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.1rem;
+}
+
+.partnerships .sub-list {
+    list-style: none;
+    padding-left: 25px;
+    margin: 15px 0;
+}
+
+.partnerships .sub-list li {
+    padding: 6px 0;
+    padding-left: 20px;
+    font-size: 0.95rem;
+}
+
+.partnerships .sub-list li::before {
+    content: "•";
+    color: var(--azul);
+    font-size: 1.3rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .intro h2 {
+        font-size: 2rem;
+    }
+    
+    .intro p {
+        font-size: 1.1rem;
+    }
+    
+    .services {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .service-category {
+        padding: 25px 20px;
+    }
+    
+    .partnerships {
+        padding: 30px 20px;
+        margin: 0 15px 30px;
+    }
+    
+    .partnerships h2 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro h2 {
+        font-size: 1.8rem;
+    }
+    
+    .service-category h3 {
+        font-size: 1.3rem;
+    }
+    
+    .partnerships {
+        padding: 25px 15px;
     }
 }
